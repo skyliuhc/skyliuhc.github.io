@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="git," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="git入门和idea中使用参考文章链接🔗:https:&#x2F;&#x2F;product.hubspot.com&#x2F;blog&#x2F;git-and-github-tutorial-for-beginners 第一步: 安装git和创建github账号如果你没有安装,请去官网(https:&#x2F;&#x2F;git-scm.com&#x2F;book&#x2F;en&#x2F;v2&#x2F;Getting-Started-Installing-Git) 可以根据你的操作信息">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git入门">
+<meta property="og:url" content="http://example.com/2021/03/23/git%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:site_name" content="skyliuhc&#39;s blogs">
+<meta property="og:description" content="git入门和idea中使用参考文章链接🔗:https:&#x2F;&#x2F;product.hubspot.com&#x2F;blog&#x2F;git-and-github-tutorial-for-beginners 第一步: 安装git和创建github账号如果你没有安装,请去官网(https:&#x2F;&#x2F;git-scm.com&#x2F;book&#x2F;en&#x2F;v2&#x2F;Getting-Started-Installing-Git) 可以根据你的操作信息">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/2021/03/23/images/git%E5%85%A5%E9%97%A8/%E6%88%AA%E5%B1%8F2021-03-23%E4%B8%8B%E5%8D%884.16.55.png">
+<meta property="og:image" content="http://example.com/2021/03/23/images/git%E5%85%A5%E9%97%A8/image-20210323163101277.png">
+<meta property="og:image" content="http://example.com/2021/03/23/images/git%E5%85%A5%E9%97%A8/image-20210323165938712.png">
+<meta property="og:image" content="http://example.com/.com//38056287.png">
+<meta property="og:image" content="http://example.com/.com//38191920.png">
+<meta property="og:image" content="http://example.com/.com//38370718-1046138.png">
+<meta property="og:image" content="http://example.com/.com//38326472.png">
+<meta property="article:published_time" content="2021-03-23T08:11:43.000Z">
+<meta property="article:modified_time" content="2021-05-15T02:36:50.369Z">
+<meta property="article:author" content="skyliuhc">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/03/23/images/git%E5%85%A5%E9%97%A8/%E6%88%AA%E5%B1%8F2021-03-23%E4%B8%8B%E5%8D%884.16.55.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2021/03/23/git入门/"/>
+
+
+
+
+
+  <title>git入门 | skyliuhc's blogs</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">skyliuhc's blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/23/git%E5%85%A5%E9%97%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="skyliuhc's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">git入门</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-23T16:11:43+08:00">
+                2021-03-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="git入门和idea中使用"><a href="#git入门和idea中使用" class="headerlink" title="git入门和idea中使用"></a>git入门和idea中使用</h1><p>参考文章链接🔗:<a target="_blank" rel="noopener" href="https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners">https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners</a></p>
+<h3 id="第一步-安装git和创建github账号"><a href="#第一步-安装git和创建github账号" class="headerlink" title="第一步: 安装git和创建github账号"></a>第一步: 安装git和创建github账号</h3><p>如果你没有安装,请去官网(<a target="_blank" rel="noopener" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">https://git-scm.com/book/en/v2/Getting-Started-Installing-Git</a>)</p>
+<p>可以根据你的操作信息按照它提供的步骤进行安装,网站支持中文.<img src="../images/git%E5%85%A5%E9%97%A8/%E6%88%AA%E5%B1%8F2021-03-23%E4%B8%8B%E5%8D%884.16.55.png" alt="截屏2021-03-23下午4.16.55"></p>
+<p>MAC用户先安装好HomBrew之后，直接brew install git就可以了<br>安装成功后可使用如下命令查看版本号</p>
+<p>可以使用如下命令（较快）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/zsh -c &quot;$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)&quot; speed</span><br></pre></td></tr></table></figure>
+<p>安装成功后可使用如下命令查看版本号</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+<p>创建github账号就略过了,正常的邮箱注册,没什么好说的</p>
+<p>Ps:为了方便日后的使用,需要配置git的用户名和邮箱以及SSH 连接</p>
+<p>详情可以参考这篇博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43768946/article/details/90411154">https://blog.csdn.net/qq_43768946/article/details/90411154</a></p>
+<p>这里放一下相关命令</p>
+<p>第一次使用git的时候需要自行设置</p>
+<p>修改全局用户名和邮箱地址:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git config --global user.name  <span class="string">&quot;username&quot;</span></span>     </span><br><span class="line"><span class="meta">$</span><span class="bash"> git config --global user.email <span class="string">&quot;email&quot;</span></span>        </span><br></pre></td></tr></table></figure>
+
+<p>修改局部用户名和邮箱地址:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> ~/you project</span>                       </span><br><span class="line"><span class="meta">$</span><span class="bash"> git config user.name  <span class="string">&quot;username&quot;</span></span>      </span><br><span class="line"><span class="meta">$</span><span class="bash"> git config user.email <span class="string">&quot;email&quot;</span></span>     </span><br></pre></td></tr></table></figure>
+
+<p>查看用户名和邮箱地址(可以用来验证): </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git config user.name</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git config user.emails</span></span><br></pre></td></tr></table></figure>
+
+<p>生成ssh 密钥</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C “这里换上你的邮箱”</span><br></pre></td></tr></table></figure>
+
+<p>然后再到github账号下的==设置==找到==SSH和GPG keys==绑定之前生成的ssh密钥</p>
+<h3 id="第二步-创建一个本地git仓库"><a href="#第二步-创建一个本地git仓库" class="headerlink" title="第二步: 创建一个本地git仓库"></a>第二步: 创建一个本地git仓库</h3><p>通过命令行或者手动在你想要的位置创建一个工程文件夹,并进入该文件夹</p>
+<p>以一个名为myblog为例子,结合命令行进行说明:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd myblog</span><br></pre></td></tr></table></figure>
+
+<p>要在文件夹的根目录中初始化git存储库，请运行git init命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<h3 id="第三步-在本地仓库放文件"><a href="#第三步-在本地仓库放文件" class="headerlink" title="第三步: 在本地仓库放文件"></a>第三步: 在本地仓库放文件</h3><p>下面就是在myproject目录下放自己的文件</p>
+<p>git status用于追踪文件</p>
+<p><img src="../images/git%E5%85%A5%E9%97%A8/image-20210323163101277.png" alt="image-20210323163101277"></p>
+<p>上面的文字说明就是说：“嘿，我们注意到您创建了xxx，但是除非您使用’git add’命令，否则我们将不会对其进行任何处理。”</p>
+<h3 id="第四步-将文件放到暂存环境中"><a href="#第四步-将文件放到暂存环境中" class="headerlink" title="第四步:  将文件放到暂存环境中"></a>第四步:  将文件放到暂存环境中</h3><p>使用git add命令放入暂存环境中,一般情况下就用下面这个命令</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>git add .  会把本地所有untrack的文件都加入暂存区，并且会根据.gitignore做过滤，</p>
+<p>git add * 会提示已被忽略的内容，但不会直接加入</p>
+</blockquote>
+<h3 id="第五步-创建注释"><a href="#第五步-创建注释" class="headerlink" title="第五步:  创建注释"></a>第五步:  创建注释</h3><p>就是经常在github上看到的commit</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;Your message about the commit&quot;</span><br></pre></td></tr></table></figure>
+
+<p>双引号的内容最好是关于”你为什么要做出这个改变”的信息,以便日后的工作</p>
+<h3 id="第六步-将暂存的文件上传到github的仓库"><a href="#第六步-将暂存的文件上传到github的仓库" class="headerlink" title="第六步: 将暂存的文件上传到github的仓库"></a>第六步: 将暂存的文件上传到github的仓库</h3><p>​    1.与远程的仓库进行连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin &quot;你的远程仓库ssh连接地址,见下图&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="../images/git%E5%85%A5%E9%97%A8/image-20210323165938712.png" alt="image-20210323165938712"></p>
+<p>再用下面两个命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git pull </span><br><span class="line"><span class="meta">#</span><span class="bash">和远程合并之后再push</span></span><br><span class="line">git push origin master </span><br><span class="line"><span class="meta">#</span><span class="bash">把改变推到github上</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="之后的更新流程"><a href="#之后的更新流程" class="headerlink" title="之后的更新流程"></a>之后的更新流程</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:skyliuhc/hexo-source.git </span><br><span class="line"><span class="meta">#</span><span class="bash">先连接</span></span><br><span class="line">git add .</span><br><span class="line"><span class="meta">#</span><span class="bash"> 加到暂存</span></span><br><span class="line">git commit -m &quot;新增一篇关于git的博客&quot;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 加注释</span></span><br><span class="line">git push origin master</span><br><span class="line"><span class="meta">#</span><span class="bash"> 推上去</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>基础部分就到这啦,关于创建新分支还有合并等操作,以后有时间再来更新</p>
+<hr>
+<h3 id="进阶部分-PS-也是用得到的命令"><a href="#进阶部分-PS-也是用得到的命令" class="headerlink" title="进阶部分(PS:也是用得到的命令!)"></a>进阶部分(PS:也是用得到的命令!)</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD^ 回退到上个版本</span><br></pre></td></tr></table></figure>
+
+<p>这个命令真是太救命了,尤其是当你手残删除了东西时,或者修改了之后出问题之后</p>
+<p>从远程的仓库把代码pull下来</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone <span class="literal">-b</span> [<span class="type">romote_branch_name</span>]</span><br></pre></td></tr></table></figure>
+
+<h3 id="在idea中使用"><a href="#在idea中使用" class="headerlink" title="在idea中使用"></a>在idea中使用</h3><p>如果嫌弃输入命令麻烦可以配合idea的git插件使用</p>
+<p>先在perferences找到git ，可以直接搜索git，按照图中的顺序，先点开1，然后再选择git的安装位置</p>
+<p>如果不知道可以使用which git来找，然后点击右边的Test</p>
+<p><img src="/.com//38056287.png" alt="img"></p>
+<p>如果配置成功的话，按了测试之后会出现版本号</p>
+<p><img src="/.com//38191920.png" alt="img"></p>
+<p>注意看git的三个按钮，</p>
+<p><img src="/.com//38370718-1046138.png" alt="img"></p>
+<p>从左至右，第一个是从远程仓库下载代码，第二个是commit ，第三个是push，上传到远程代码</p>
+<p><img src="/.com//38326472.png" alt="img"></p>
+<p>写完代码之后就可以先勾✅，然后写入commit信息，在点击最右边的push，又能上传到github啦</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/03/23/%E5%89%91%E6%8C%87offer/" rel="next" title="剑指offer03">
+                <i class="fa fa-chevron-left"></i> 剑指offer03
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/03/25/%E5%89%91%E6%8C%87offer04/" rel="prev" title="剑指offer04">
+                剑指offer04 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git%E5%85%A5%E9%97%A8%E5%92%8Cidea%E4%B8%AD%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">git入门和idea中使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5-%E5%AE%89%E8%A3%85git%E5%92%8C%E5%88%9B%E5%BB%BAgithub%E8%B4%A6%E5%8F%B7"><span class="nav-number">1.0.1.</span> <span class="nav-text">第一步: 安装git和创建github账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%9C%AC%E5%9C%B0git%E4%BB%93%E5%BA%93"><span class="nav-number">1.0.2.</span> <span class="nav-text">第二步: 创建一个本地git仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5-%E5%9C%A8%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E6%94%BE%E6%96%87%E4%BB%B6"><span class="nav-number">1.0.3.</span> <span class="nav-text">第三步: 在本地仓库放文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5-%E5%B0%86%E6%96%87%E4%BB%B6%E6%94%BE%E5%88%B0%E6%9A%82%E5%AD%98%E7%8E%AF%E5%A2%83%E4%B8%AD"><span class="nav-number">1.0.4.</span> <span class="nav-text">第四步:  将文件放到暂存环境中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E6%AD%A5-%E5%88%9B%E5%BB%BA%E6%B3%A8%E9%87%8A"><span class="nav-number">1.0.5.</span> <span class="nav-text">第五步:  创建注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E6%AD%A5-%E5%B0%86%E6%9A%82%E5%AD%98%E7%9A%84%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%88%B0github%E7%9A%84%E4%BB%93%E5%BA%93"><span class="nav-number">1.0.6.</span> <span class="nav-text">第六步: 将暂存的文件上传到github的仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B9%8B%E5%90%8E%E7%9A%84%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B"><span class="nav-number">1.0.7.</span> <span class="nav-text">之后的更新流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6%E9%83%A8%E5%88%86-PS-%E4%B9%9F%E6%98%AF%E7%94%A8%E5%BE%97%E5%88%B0%E7%9A%84%E5%91%BD%E4%BB%A4"><span class="nav-number">1.0.8.</span> <span class="nav-text">进阶部分(PS:也是用得到的命令!)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8idea%E4%B8%AD%E4%BD%BF%E7%94%A8"><span class="nav-number">1.0.9.</span> <span class="nav-text">在idea中使用</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">skyliuhc</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

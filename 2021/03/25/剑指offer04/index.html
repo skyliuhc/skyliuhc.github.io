@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Leetcode," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="现在题目之前,刚开始刷题,肯定会出现很多问题,比如java语言的不熟,逻辑的不严密,我觉得都很正常,不必一上来就给自己定很高的标准,以学习的心态来思考.   剑指Offer 04: 二维数组中的查找题目描述:在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个高效的函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剑指offer04">
+<meta property="og:url" content="http://example.com/2021/03/25/%E5%89%91%E6%8C%87offer04/index.html">
+<meta property="og:site_name" content="skyliuhc&#39;s blogs">
+<meta property="og:description" content="现在题目之前,刚开始刷题,肯定会出现很多问题,比如java语言的不熟,逻辑的不严密,我觉得都很正常,不必一上来就给自己定很高的标准,以学习的心态来思考.   剑指Offer 04: 二维数组中的查找题目描述:在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个高效的函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/2021/03/25/images/%E5%89%91%E6%8C%87offer04/image-20210325212531525.png">
+<meta property="og:image" content="http://example.com/2021/03/25/images/%E5%89%91%E6%8C%87offer04/image-20210325212923705.png">
+<meta property="article:published_time" content="2021-03-25T12:51:59.000Z">
+<meta property="article:modified_time" content="2021-05-12T23:32:00.933Z">
+<meta property="article:author" content="skyliuhc">
+<meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/03/25/images/%E5%89%91%E6%8C%87offer04/image-20210325212531525.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2021/03/25/剑指offer04/"/>
+
+
+
+
+
+  <title>剑指offer04 | skyliuhc's blogs</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">skyliuhc's blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/25/%E5%89%91%E6%8C%87offer04/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="skyliuhc's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">剑指offer04</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-25T20:51:59+08:00">
+                2021-03-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%88%B7%E9%A2%98/" itemprop="url" rel="index">
+                    <span itemprop="name">刷题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<blockquote>
+<p>现在题目之前,刚开始刷题,肯定会出现很多问题,比如java语言的不熟,逻辑的不严密,我觉得都很正常,不必一上来就给自己定很高的标准,以学习的心态来思考.</p>
+</blockquote>
+<hr>
+<h1 id="剑指Offer-04-二维数组中的查找"><a href="#剑指Offer-04-二维数组中的查找" class="headerlink" title="剑指Offer 04: 二维数组中的查找"></a>剑指Offer 04: 二维数组中的查找</h1><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述:"></a>题目描述:</h3><p>在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个高效的函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
+<p>举例:</p>
+<p>现有矩阵matrix如下:</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  [<span class="number">1</span>,   <span class="number">4</span>,  <span class="number">7</span>, <span class="number">11</span>, <span class="number">15</span>],</span><br><span class="line">  [<span class="number">2</span>,   <span class="number">5</span>,  <span class="number">8</span>, <span class="number">12</span>, <span class="number">19</span>],</span><br><span class="line">  [<span class="number">3</span>,   <span class="number">6</span>,  <span class="number">9</span>, <span class="number">16</span>, <span class="number">22</span>],</span><br><span class="line">  [<span class="number">10</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">17</span>, <span class="number">24</span>],</span><br><span class="line">  [<span class="number">18</span>, <span class="number">21</span>, <span class="number">23</span>, <span class="number">26</span>, <span class="number">30</span>]</span><br><span class="line">]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="解题思路1"><a href="#解题思路1" class="headerlink" title="解题思路1:"></a>解题思路1:</h3><p>我不管数据的特性是什么,直接==遍历整个二维数组==,==逐一进行对比==,</p>
+<p>在我们写整个代码之前,首先先考虑一下是否存在需要单独处理的特殊情况.(当然我是做了很多次,才发现这题有这种考量,实际上在现实开发中,我们就需要培养考虑问题全面的习惯)</p>
+<p>什么特俗情况呢?</p>
+<ol>
+<li>这个矩阵不存在</li>
+<li>元素为空</li>
+</ol>
+<p>题目特殊就特殊在这个数组是个二维数组,那么二维数组不存在,只需要判断它的地址值是不是null;除此之外我们就需要考虑它的元素是不是为空.</p>
+<p>而二维矩阵为空有几种情况呢?</p>
+<p>答案是下面两种:</p>
+<ol>
+<li>“数组为[]”</li>
+<li>“数组为[[]]”</li>
+</ol>
+<p>下面来解释一下,从数组底层的运行机制来说,其实没有多维数组.二维数组可以看成一个一元数组肚子里面的元素还是一位数组,就是套娃.</p>
+<p>比如说一个二维数组array1有array1.length的元素,而arrya1的第i个元素实际上是一个长度为array[i].length的一维数组.</p>
+<p>所以,一个二维数组为空的话,要么是array1.length=0,没有元素,也就是没有套娃</p>
+<p>要么就是array[0].length=0,虽然套了个娃,但是娃是个空气.</p>
+<p>综合这三种情况,需要提前处理的特俗情况就是下面的代码,注意数组元素为空的情况</p>
+<p>注意顺序不能颠倒,只有matrix.length不等于0的前提下才能进行matrix[0].length的操作,否则会报指针越界的异常</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (matrix == <span class="keyword">null</span> || matrix.length == <span class="number">0</span> || matrix[<span class="number">0</span>].length == <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如下图(==对应二维数组元素为空的情况2==),对于一个int数组m,如果它被静态初始化为”[[]]”,虽然说它没有实际有效的元素,实但是它的m.length=1,</p>
+<p><img src="../images/%E5%89%91%E6%8C%87offer04/image-20210325212531525.png"></p>
+<p>如下面(==对应二维数组元素为空的情况1==),就是没有套娃,你对娃进行访问的话就会报异常</p>
+<p><img src="../images/%E5%89%91%E6%8C%87offer04/image-20210325212923705.png"></p>
+<p>特殊情况这里,最后再多说一句leetcode本题采用的测试用例就包含这歌特殊情况,所以无论你之后的方法写的多好,还是会挂掉.</p>
+<p>遍历整个二维数组的话难度就不是很大了,直接上代码吧,</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">findNumberIn2DArray1</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//首先要判断特俗情况</span></span><br><span class="line">        <span class="keyword">if</span> (matrix == <span class="keyword">null</span> || matrix.length == <span class="number">0</span> || matrix[<span class="number">0</span>].length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//两次循环遍历查找，时间复杂度O(mn),m是行数,n是列数</span></span><br><span class="line">        <span class="keyword">int</span> rows = matrix.length, columns = matrix[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; rows; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; columns; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (matrix[i][j] == target) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里不用设置一个flag来表明是否存在,就直接return就好,还可以省一个变量.</p>
+<h3 id="解题思路2"><a href="#解题思路2" class="headerlink" title="解题思路2"></a>解题思路2</h3><p>==逐渐缩小搜索的范围==</p>
+<p>考虑数组的性质,它是一个有序的数组</p>
+<blockquote>
+<p>每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序</p>
+</blockquote>
+<p>翻译一下:</p>
+<p>每一行左边最小,右边最大</p>
+<p>每一列最上面最小,最下面最大.</p>
+<p>我们通过一大一小进行搭配,来逐渐缩小范围,什么意思呢?</p>
+<p>就是第一个比较的元素要么是搜索范围中的右上角或者是左上角</p>
+<ul>
+<li><p>右上角(列数最大,行数最小)</p>
+</li>
+<li><p>左下角(列数最小,行数最大)</p>
+</li>
+</ul>
+<p>如果说比一行中最右边的那个数最大那是不是说明,你这一行不用搜了,直接搜下一行就行了</p>
+<p>如果说比一列中最末尾的那部分最大是不是说明,这一列不用搜了,搜下一列就行了</p>
+<p>比如下面这个简单的二维数组(只是为了说明情况),target元素直接和右上角的4进行对比,如果它比4大,那么就舍弃第一行,搜索范围变为下面的三行,如果它比4小,搜索范围变成左边三列了,等于就直接返回true</p>
+<table>
+<thead>
+<tr>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">==4==</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">5</td>
+<td align="center">6</td>
+<td align="center">7</td>
+<td align="center">8</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td align="center">10</td>
+<td align="center">11</td>
+<td align="center">12</td>
+</tr>
+<tr>
+<td align="center">13</td>
+<td align="center">14</td>
+<td align="center">15</td>
+<td align="center">16</td>
+</tr>
+</tbody></table>
+<p>翻译成代码如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> rows = matrix.length, columns = matrix[<span class="number">0</span>].length;</span><br><span class="line"><span class="keyword">int</span> row = <span class="number">0</span>, column = columns - <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> (row &lt; rows &amp;&amp; column &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">int</span> num = matrix[row][column];<span class="comment">//右上角的数</span></span><br><span class="line">      <span class="keyword">if</span> (num == target) &#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">       &#125; <span class="keyword">else</span> <span class="keyword">if</span> (num &gt; target) &#123;<span class="comment">//比右上角的数小</span></span><br><span class="line">       		 column--;</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;<span class="comment">//比右上角的数大</span></span><br><span class="line">           row++;</span><br><span class="line">       &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>同样可以写作左下角:</p>
+<p>代码写成稍作修改即可:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> rows = matrix.length, columns = matrix[<span class="number">0</span>].length;</span><br><span class="line"><span class="keyword">int</span> row = rows-<span class="number">1</span>, column = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (colum &lt; columns &amp;&amp; row &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">int</span> num = matrix[row][column];<span class="comment">//左下角的数</span></span><br><span class="line">      <span class="keyword">if</span> (num == target) &#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">       &#125; <span class="keyword">else</span> <span class="keyword">if</span> (num &gt; target) &#123;<span class="comment">//比左下角的数小</span></span><br><span class="line">        	row--;</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;<span class="comment">//比左下角的数大</span></span><br><span class="line">           column++;</span><br><span class="line">       &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>完整代码如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//右上角    </span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">findNumberIn2DArray</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (matrix == <span class="keyword">null</span> || matrix.length == <span class="number">0</span> || matrix[<span class="number">0</span>].length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> rows = matrix.length, columns = matrix[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">int</span> row = <span class="number">0</span>, column = columns - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (row &lt; rows &amp;&amp; column &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> num = matrix[row][column];</span><br><span class="line">            <span class="keyword">if</span> (num == target) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (num &gt; target) &#123;</span><br><span class="line">                column--;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                row++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//左下角</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">findNumberIn2DArray2</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//首先要判断数组是否为空</span></span><br><span class="line">        <span class="keyword">if</span> (matrix == <span class="keyword">null</span> || matrix.length == <span class="number">0</span> || matrix[<span class="number">0</span>].length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//两次循环遍历查找，时间复杂度O(mn)</span></span><br><span class="line">        <span class="keyword">int</span> rows = matrix.length, columns = matrix[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">int</span> row = rows - <span class="number">1</span>, column = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (column &lt; columns &amp;&amp; row &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> num = matrix[row][column];<span class="comment">//左下角的数</span></span><br><span class="line">            <span class="keyword">if</span> (num == target) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (num &gt; target) &#123;<span class="comment">//比左下角的数大</span></span><br><span class="line">                row--;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;<span class="comment">//比左下角的数小</span></span><br><span class="line">                column++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Leetcode/" rel="tag"># Leetcode</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/03/23/git%E5%85%A5%E9%97%A8/" rel="next" title="git入门">
+                <i class="fa fa-chevron-left"></i> git入门
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%91%E6%8C%87Offer-04-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE"><span class="nav-number">1.</span> <span class="nav-text">剑指Offer 04: 二维数组中的查找</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.0.1.</span> <span class="nav-text">题目描述:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF1"><span class="nav-number">1.0.2.</span> <span class="nav-text">解题思路1:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF2"><span class="nav-number">1.0.3.</span> <span class="nav-text">解题思路2</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">skyliuhc</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
